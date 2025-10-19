@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="bootstrapClean.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+<body class="d-flex flex-column min-vh-100">
+<header>
+    <nav class="navbar bg-body-secondary">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <!-- Menu dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle p-1 me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <ul class="dropdown-menu hamDropDown">
+                        <li><a class="dropdown-item" href="#">Newest</a></li>
+                        <li>
+                            <a class="dropdown-item" href="#">Trending</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="#">Top Rated</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Search toggle button -->
+                <button class="btn btn-default p-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div>
+                <button class="btn btn-default p-1" type="button">
+                    <i class="fa-solid fa-user"></i>
+                </button> 
+            </div>
+        </div>
+    </nav>
+
+    <!-- Collapsible search bar (below navbar) -->
+    <div class="collapse" id="collapseSearch">
+        <div class="card card-body border-0 py-2">
+            <div class="d-flex justify-content-center flex-wrap search-container">
+                <input class="form-control border border-2 rounded-start search-input" type="search" placeholder="Movie..." aria-label="Movie"/>
+                <button class="btn btn-outline-secondary rounded-end search-btn" type="button" id="searchBtn">Search</button>
+                <div class="search-results shadow" id="searchResults">
+                    <!-- Results will be inserted here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="flex-grow-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="text-center">Trending</h3>
+            </div>
+        </div>
+        <div class="row g-2">
+            <div class="col-6 col-md-3 col-xl-2 cardCont">
+                <div class="card" style="min-width: 9rem;">
+                    <a href="https://google.com">
+                        <img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg" class="card-img-top" alt="...">
+                    </a>  
+                    <div class="card-body p-1">
+                        <h5 class="card-title mb-1">Avengers: Endgame</h5>
+                        <span class="card-text d-flex justify-content-between px-1">
+                            <span>Movie</span>
+                            <span>2022</span>
+                            <button class="btn btn-default p-0 bookmark-btn" data-id="tt1111">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2 cardCont">
+                <div class="card" style="min-width: 9rem;">
+                    <a href="#">
+                        <img src="https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg" class="card-img-top" alt="...">
+                    </a>    
+                    <div class="card-body p-1">
+                        <h5 class="card-title">Mission Impossible: Rogue Nation</h5>
+                        <span class="card-text d-flex justify-content-between">
+                            <span>Movie</span>
+                            <span>2022</span>
+                            <button class="btn btn-default p-0 bookmark-btn" data-id="tt2222">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2 cardCont">
+                <div class="card" style="min-width: 9rem;">
+                    <a href="#">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMDE1NjNmZjgtZTg0OC00NjkxLWEzYzItMDNkMTc3YjgxZWQyXkEyXkFqcGc@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body p-1">
+                        <h5 class="card-title">Wednesday</h5>
+                        <span class="card-text d-flex justify-content-between">
+                            <span>Series</span>
+                            <span>2022–</span>
+                            <button class="btn btn-default p-0 bookmark-btn" data-id="tt3333">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2 cardCont">
+                <div class="card" style="min-width: 9rem;">
+                    <a href="#">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMTQ0NzUxNjIxMF5BMl5BanBnXkFtZTcwMDU2NDEzMQ@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body p-1">
+                        <h5 class="card-title">Bloody Wednesday</h5>
+                        <span class="card-text d-flex justify-content-between">
+                            <span>Movie</span>
+                            <span>1987</span>
+                            <button class="btn btn-default p-0 bookmark-btn" data-id="tt4444">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2 cardCont">
+                <div class="card" style="min-width: 9rem;">
+                    <a href="#">
+                        <img src="https://m.media-amazon.com/images/M/MV5BODFjMDJiMmMtNzgyMy00ZmQ0LWE5Y2ItYWY5ZTg0YjU1MTNjXkEyXkFqcGc@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body p-1">
+                        <h5 class="card-title">Adult Wednesday Addams</h5>
+                        <span class="card-text d-flex justify-content-between">
+                            <span>series</span>
+                            <span>2013–2015</span>
+                            <button class="btn btn-default p-0 bookmark-btn" data-id="tt5555">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3 col-xl-2 cardCont">
+                <div class="card" style="min-width: 9rem;">
+                    <a href="#">
+                        <img src="https://m.media-amazon.com/images/M/MV5BMTA1OTI2Njc5NzZeQTJeQWpwZ15BbWU2MDE1MTc5OQ@@._V1_SX300.jpg" class="card-img-top" alt="...">
+                    </a>
+                    <div class="card-body p-1">
+                        <h5 class="card-title">Ash Wednesday</h5>
+                        <span class="card-text d-flex justify-content-between">
+                            <span>Movie</span>
+                            <span>2002</span>
+                            <button class="btn btn-default p-0 bookmark-btn" data-id="tt6666">
+                                <i class="fa-regular fa-bookmark"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row PCN">
+            <div class="col-12">
+                <button class="btn btn-default Previous" type="button">Prev</button>
+                <button class="btn btn-default Current" type="button" disabled>1</button>
+                <button class="btn btn-default Next" type="button">Next</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="mt-4 bg-light bg-body-secondary">
+    <div class="container-fluid text-center">
+        <div class="row">
+            <div class="col-12">
+                Made With ❤️ By Arch
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+            <div class="col"><a href="#">Latest</a></div>
+            <div class="col"><a href="#">Trending</a></div>
+            <div class="col"><a href="#">Top Rated</a></div>
+            <div class="col"><a href="#">About Pixelated</a></div>
+        </div>
+    </div>
+</footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+
+<script>
+    // Search Section
+    const searchBtn = document.getElementById("searchBtn");
+    const searchResults = document.getElementById("searchResults");
+    searchBtn.addEventListener("click", () => {
+        // Mock movie data
+        const movies = [
+            {
+                title: "Inception",
+                year: 2010,
+                poster: "https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SY679_.jpg",
+            },
+            {
+                title: "Interstellar",
+                year: 2014,
+                poster: "https://m.media-amazon.com/images/I/71niXI3lxlL._AC_SY679_.jpg",
+            },
+            {
+                title: "Wednesday",
+                year: 2022,
+                poster: "https://m.media-amazon.com/images/M/MV5BMDE1NjNmZjgtZTg0OC00NjkxLWEzYzItMDNkMTc3YjgxZWQyXkEyXkFqcGc@._V1_SX300.jpg",
+            },
+            {
+                title: "Ash Wednesday",
+                year: 2002,
+                poster: "https://m.media-amazon.com/images/M/MV5BMTA1OTI2Njc5NzZeQTJeQWpwZ15BbWU2MDE1MTc5OQ@@._V1_SX300.jpg",
+            },
+            {
+                title: "Bloody Wednesday",
+                year: 1987,
+                poster: "https://m.media-amazon.com/images/M/MV5BMTQ0NzUxNjIxMF5BMl5BanBnXkFtZTcwMDU2NDEzMQ@@._V1_SX300.jpg",
+            },
+            // ... add more mock results
+        ];
+        
+        searchResults.innerHTML = "";   // Clear old results
+        movies.forEach((movie) => {     // Populate new results
+            const item = document.createElement("div");
+            item.classList.add("search-result-item");
+            item.innerHTML = `
+                <img src="${movie.poster}" alt="${movie.title}">
+                <div class="info">
+                    <h6>${movie.title}</h6>
+                    <small>${movie.year}</small>
+                </div>
+            `;
+            searchResults.appendChild(item);
+        });
+        searchResults.classList.add("show"); // Show dropdown
+    });
+    // Hide when clicking outside
+    document.addEventListener("click", (e) => {
+        if (!searchResults.contains(e.target) && e.target !== searchBtn) {
+            searchResults.classList.remove("show");
+        }
+    });
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const bookmarkButtons = document.querySelectorAll(".bookmark-btn");
+        const savedBookmarks = JSON.parse(localStorage.getItem("bookmarks")) || [];     // Load saved bookmarks from localStorage
+
+        // Update icons based on saved bookmarks
+        bookmarkButtons.forEach(btn => {
+            const movieId = btn.dataset.id;
+            const icon = btn.querySelector("i");
+            if (savedBookmarks.includes(movieId)) {
+            icon.classList.replace("fa-regular", "fa-solid");
+            }
+
+            // Add toggle listener
+            btn.addEventListener("click", e => {
+                e.preventDefault(); // prevent anchor clicks
+                e.stopPropagation();
+
+                if (savedBookmarks.includes(movieId)) { // Remove bookmark
+                    savedBookmarks.splice(savedBookmarks.indexOf(movieId), 1);
+                    icon.classList.replace("fa-solid", "fa-regular");
+                } else {    // Add bookmark
+                    savedBookmarks.push(movieId);
+                    icon.classList.replace("fa-regular", "fa-solid");
+                }
+                // Save back to localStorage
+                localStorage.setItem("bookmarks", JSON.stringify(savedBookmarks));
+            });
+        });
+    });
+
+
+</script>
+</html>

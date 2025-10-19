@@ -1,28 +1,31 @@
-const express = require('express');
-const axios = require('axios');
+import dotenv from 'dotenv';
+dotenv.config();
+import express, { json } from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const TMDB_API_KEY = 'ec0384aa0ba089f7d3bbb0c12e53de7d';
+app.use(cors())
+app.use(express.json())
 
-app.get('/api/latest', async (req, res) => {
-    console.log('Received request to /api/latest');
-  try {
-    const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing`, {
-      params: {
-        api_key: TMDB_API_KEY,
-        language: 'en-US',
-        page: 1
-      }
-    });
-    res.json(response.data);
-  } catch (error) {
-    console.error(error.message);
-    console.error(error.response?.data || error.message);
-    res.status(500).send('Failed to fetch data from TMDB');
-  }
-});
+app.post("/search", async (req, res)=>{
+    try{
+        const searchVal = req.body.Search;     // console.log("searched value: ", searchVal);
 
-app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
-});
+        const response = await fetch(`https://www.omdbapi.com/?s=${searchVal}&apikey=${process.env.OMDB_KEY}`)
+        const data = await response.json();     // console.log("OMDB data: ", data);
+
+        res.json({status: "success", searched: searchVal, omdb: data})
+    } catch(error){
+        console.log("Error in /search route:", error);
+        res.status(500).json({status:"error", message: "Internal Server Error"});
+    }
+    
+})
+
+
+app.listen(PORT, ()=>{
+    console.log(`App live at : http://localhost:${PORT}`);
+})

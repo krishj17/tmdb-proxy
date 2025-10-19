@@ -1,0 +1,186 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* Base desktop style */
+body{
+    scroll-behavior:smooth;
+}
+.search-container {
+    justify-content: center;
+}
+
+.search-input {
+    width: 50%;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+}
+
+.search-btn {
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(75% + 25%); /* full width of input + button */
+    max-width: 600px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 0 0 0.5rem 0.5rem;
+    margin-top: 4px;
+    display: none; /* hidden by default */
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 1050;
+    padding: 0.5rem;
+}
+
+.search-results.show {
+    display: block;
+}
+
+.search-result-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.6rem;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-result-item:hover {
+    background: #f8f8f8;
+}
+
+.search-result-item img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.search-result-item .info {
+    flex: 1;
+}
+
+.search-result-item .info h6 {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.search-result-item .info small {
+    color: #666;
+}
+
+
+/* Cards Part---------------- */
+.card a {
+    color:darkblue;
+    text-decoration: none;
+}
+.card a:hover {
+    color:darkred;
+    text-decoration: none;
+}
+.cardCont {
+    transition: 0.4s all ease-in-out;
+}
+.cardCont:hover {
+    transform: scale(1.05);
+}
+.card-title {
+    display: block;            /* or inline-block */
+    white-space: nowrap;       /* keep it on one line */
+    overflow: hidden;          /* hide extra text */
+    text-overflow: ellipsis;   /* add ... at the end */
+    max-width: 100%;           /* important: constrain width */
+}
+.card-img-top {
+    height: 14rem;      /* or whatever fits your layout */
+    object-fit: cover;  /* keeps aspect ratio and crops if needed */
+}
+
+/* .PCN {
+    display: flex;
+} */
+.PCN div {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 0.3rem;
+}
+.PCN button{
+    outline: 0.3px solid steelblue;
+}
+
+
+
+/* Footer Part:----- */
+footer .col {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+footer .col a {
+    text-decoration: none;
+    color: inherit;
+}
+
+footer .col a:hover {
+    text-decoration: underline;
+}
+
+/* Mobile full-width layout */
+@media (max-width: 576px) {
+    .hamDropDown {
+        width: auto;        
+        min-width: 120px;   
+    }
+    .hamDropDown a{
+        padding: 0.25rem 0.75rem; 
+        font-size: 0.9rem; 
+    }
+
+    .search-container {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+        padding: 0 0.5rem;
+    }
+
+    .search-input {
+        width: 75%;
+        border-radius: 0.5rem 0 0 0.5rem;
+        font-size: 0.9rem;
+        padding: 0.45rem 0.6rem;
+        height: 38px; /* make both equal height */
+        box-sizing: border-box;
+    }
+
+    .search-btn {
+        width: 25%;
+        border-radius: 0 0.5rem 0.5rem 0;
+        font-size: 0.9rem;
+        padding: 0.45rem 0.6rem;
+        height: 38px; /* match input height */
+        box-sizing: border-box;
+    }
+
+    /* Cards section */
+    .card-title{
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+        display: inline-block;
+    }
+    .card-text{
+        font-size: 0.8rem;
+        display: inline-block;
+        padding: 0px 0.5rem;
+    }
+}

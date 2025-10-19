@@ -1,0 +1,4 @@
+/* Remove dropdown arrow from dropdown: */
+.dropdown-toggle::after {
+  content: none;
+}

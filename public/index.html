@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #list p{
+            display: inline-block;
+        }
+    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Document</title>
+</head>
+<body>
+    <input id="search-bar" type="search">
+    <button id="search-btn">Search</button>
+    <ul id="list">
+
+    </ul>
+</body>
+<script>
+    const searchBar = document.querySelector("#search-bar");
+    const searchBtn = document.querySelector("#search-btn");
+    const list = document.querySelector("#list")
+
+    async function handleSearch(){
+        const SearchVal = searchBar.value;      console.log("searched: ", SearchVal);
+
+        const response = await fetch("http://localhost:5050/search", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({Search : SearchVal}),
+        })
+        const data = await response.json();     console.log("From Server",data);
+
+        console.log(data.omdb.Search)
+        if(data.omdb.Response=="True"){
+            const searchList = data.omdb.Search;
+            for(item of searchList){
+                const li = document.createElement("li");
+                li.innerHTML=`
+                    <p><b>${item.Title}<b></p> | <p>${item.Type}</p> | <p>${item.Year}</p> | <p>${item.imdbID}</p><br>
+                    <img src="${item.Poster}">
+                `;
+                list.appendChild(li);
+            }
+        } else {
+            const li = document.createElement("li").innerHTML=`<p>No Movies Found!<p>`;
+            list.appendChild(li);
+        }
+
+
+    };
+    searchBtn.addEventListener("click", handleSearch);
+
+
+
+
+    
+</script>
+</html>
