@@ -1,0 +1,43 @@
+
+<header>
+    <nav class="navbar bg-body-secondary">
+        <div class="container-fluid d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <!-- Menu dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle p-1 me-2" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <ul class="dropdown-menu hamDropDown">
+                        <li><a class="dropdown-item" href="/">Home</a></li>
+                        <li><a class="dropdown-item" href="/latest">Latest</a></li>
+                        <li><a class="dropdown-item" href="/trending">Trending</a></li>
+                        <li><a class="dropdown-item" href="#">Top Rated</a></li>
+                    </ul>
+                </div>
+                <!-- Search toggle button -->
+                <button class="btn btn-default p-1" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div> <!-- Account Button -->
+                <button class="btn btn-default p-1" type="button">
+                    <i class="fa-solid fa-user"></i>
+                </button> 
+            </div>
+        </div>
+    </nav>
+
+    <!-- Collapsible search bar (below navbar) -->
+    <div class="collapse" id="collapseSearch">
+        <div class="card card-body border-0 py-2">
+            <div class="d-flex justify-content-center flex-wrap search-container">
+                <input class="form-control border border-2 rounded-start search-input" type="search" placeholder="Movie..." aria-label="Movie"/>
+                <button class="btn btn-outline-secondary rounded-end search-btn" type="button" id="searchBtn">Search</button>
+                <div class="search-results shadow" id="searchResults">
+                    <!-- Results will be inserted here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
