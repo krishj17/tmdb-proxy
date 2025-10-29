@@ -9,13 +9,28 @@
     <link rel="stylesheet" href="/style.css" />
     <title><%= title %></title>
 </head>
-<body class="d-flex flex-column min-vh-100" data-page="latest">
+<body class="d-flex flex-column min-vh-100" data-page="player" id="player-body">
 
 <%- include('partials/header') %>
 
-<main>
-  <h1>latest PixelatedMovi</h1>
-  <p>PixelatedMovi helps movie fans discover trending, top-rated, and latest films.</p>
+<main class="flex-grow-1" id="player-main">
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-12 col-md-4 text-center py-2">
+            <img src="https://image.tmdb.org/t/p/w500/wobVTa99eW0ht6c1rNNzLkazPtR.jpg" alt="movie/series" class="player-img">
+        </div>
+        <div class="col-12 col-md-8 py-2">
+            <h2>The Long Walk</h2>
+            <p><i>In a dystopian, alternate-America ruled by a totalitarian regime, 50 teenage boys take part in a deadly annual walking contest, forced to maintain a minimum pace or be executed, until only one survivor remains.</i></p>
+            <span class="d-block">Type: Movie</span>
+            <span class="d-block">Language: English</span>
+            <span>2025-09-10</span>
+            <div id="genres-cont">
+                <span>Genres: </span><span>Crime</span><span>Mystery</span><span>Drama</span> 
+            </div>
+        </div>
+    </div>
+</div>
 </main>
 
 <%- include('partials/footer') %>

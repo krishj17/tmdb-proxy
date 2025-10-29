@@ -1,0 +1,80 @@
+{
+    "status": "success",
+    "searched": "wednesday",
+    "omdb": {
+        "Search": [
+            {
+                "Title": "Wednesday",
+                "Year": "2022–",
+                "imdbID": "tt13443470",
+                "Type": "series",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMDE1NjNmZjgtZTg0OC00NjkxLWEzYzItMDNkMTc3YjgxZWQyXkEyXkFqcGc@._V1_SX300.jpg"
+            },
+            {
+                "Title": "A Wednesday",
+                "Year": "2008",
+                "imdbID": "tt1280558",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMjNhOGI3NmQtODJmNy00MWM5LWIzYmMtZWEwZDkwMWUwZGZlXkEyXkFqcGc@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Fireworks Wednesday",
+                "Year": "2006",
+                "imdbID": "tt0845439",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTU3MTIzNDA1MV5BMl5BanBnXkFtZTgwNzAwMDY2ODE@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Big Wednesday",
+                "Year": "1978",
+                "imdbID": "tt0077235",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BNjAyODk5OTItNmZiZC00ZmI3LWE5MzctNGZhNTM4MTk3MDA3XkEyXkFqcGc@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Ash Wednesday",
+                "Year": "2002",
+                "imdbID": "tt0280438",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTA1OTI2Njc5NzZeQTJeQWpwZ15BbWU2MDE1MTc5OQ@@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Any Wednesday",
+                "Year": "1966",
+                "imdbID": "tt0060112",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BOGU1MWNiZDEtODJiYy00YTUzLWE2YzQtN2Q1N2RmYzRiY2U2XkEyXkFqcGc@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Wednesday, May 9",
+                "Year": "2015",
+                "imdbID": "tt4944924",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BOWQ1MDllMmItM2ZlMi00NmU2LTliZWItNjg1ZjMxMTQzNmY1XkEyXkFqcGc@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Ash Wednesday",
+                "Year": "1973",
+                "imdbID": "tt0069736",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BYmYzYTA4NzQtMTk1YS00MmUwLTkxMWYtNTkwYjg4MTMxZmUzXkEyXkFqcGc@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Adult Wednesday Addams",
+                "Year": "2013–2015",
+                "imdbID": "tt3488236",
+                "Type": "series",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BODFjMDJiMmMtNzgyMy00ZmQ0LWE5Y2ItYWY5ZTg0YjU1MTNjXkEyXkFqcGc@._V1_SX300.jpg"
+            },
+            {
+                "Title": "Bloody Wednesday",
+                "Year": "1987",
+                "imdbID": "tt0088828",
+                "Type": "movie",
+                "Poster": "https://m.media-amazon.com/images/M/MV5BMTQ0NzUxNjIxMF5BMl5BanBnXkFtZTcwMDU2NDEzMQ@@._V1_SX300.jpg"
+            }
+        ],
+        "totalResults": "217",
+        "Response": "True"
+    }
+}

@@ -4,10 +4,27 @@
     box-sizing: border-box;
 }
 
-/* Base desktop style */
-body{
+#player-body{
     scroll-behavior:smooth;
+    background: url('https://image.tmdb.org/t/p/w1280/pcJft6lFWsJxutwpLHVYfmZRPQp.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
 }
+#player-body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* adjust opacity here */
+    z-index: -1; /* keeps it behind content */
+}
+#player-main {
+  background-color: rgba(255, 255, 255, 0.433); /* subtle transparency behind main content */
+}
+
+/* Search Section:------------------------------------------------------------------------------- */
 .search-container {
     justify-content: center;
 }
@@ -80,7 +97,7 @@ body{
 }
 
 
-/* Cards Part---------------- */
+/* Cards Section:------------------------------------------------------------------------------- */
 .card a {
     color:darkblue;
     text-decoration: none;
@@ -107,9 +124,7 @@ body{
     object-fit: cover;  /* keeps aspect ratio and crops if needed */
 }
 
-/* .PCN {
-    display: flex;
-} */
+/* PCN Section:------------------------------------------------------------------------------- */
 .PCN div {
     margin-top: 1rem;
     display: flex;
@@ -122,7 +137,7 @@ body{
 
 
 
-/* Footer Part:----- */
+/* Footer Section:------------------------------------------------------------------------------- */
 footer .col {
     margin-bottom: 0.5rem;
     font-weight: 500;
@@ -136,7 +151,14 @@ footer .col a:hover {
     text-decoration: underline;
 }
 
-/* Mobile full-width layout */
+
+.player-img {
+    height: 18rem;      /* or whatever fits your layout */
+    object-fit: cover;  /* keeps aspect ratio and crops if needed */
+}
+
+
+/* Mobile Layout Section:************************************************************************* */
 @media (max-width: 576px) {
     .hamDropDown {
         width: auto;        
