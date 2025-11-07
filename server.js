@@ -17,6 +17,7 @@ app.set("views", path.join(__dirname, "views"));
 // Middlewares:-------------
 app.use(cors())
 app.use(express.json())
+app.use(express.static('assets')); 
 // Serve static files (CSS, images, JS)
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -33,10 +34,42 @@ app.get("/trending", (req, res) => {
 app.get("/latest", (req, res) => {
   res.render("latest", { title: "Latest | PixelatedMovi" });
 });
-app.get("/player", (req, res) => {
-  res.render("player", { title: "Player | PixelatedMovi" });
-});
+app.get("/player", async (req, res) => {
+    const { mediaType, id } = req.query;
+    console.log("Player requested for:", mediaType, id);
+    const tmdbType = mediaType === "movie" ? "movie" : "tv"; // change to "tv" if its "series"(from omdb).
 
+    // get both tmdb and imdb ids
+    const fetchedIds = await getAllIds(tmdbType, id);
+    const imdbId = fetchedIds.allIds.imdb_id;
+    const tmdbId = fetchedIds.allIds.id;
+
+    // fetch tmdb full details
+    const response = await fetch(`https://temp-tmdb-proxy.vercel.app/tmdb/${tmdbType}/${tmdbId}`);
+    const tmdbContent = await response.json();
+
+    // fetch omdb details for ratings
+    const omdbResponse = await fetch(`https://www.omdbapi.com/?i=${Number(imdbId)}&apikey=${process.env.OMDB_KEY}`);
+    const omdbData = await omdbResponse.json();
+
+    res.render("player", {title: "Player | Pixelated", jsonData: JSON.stringify( {tmdb: tmdbContent, omdb: omdbData} )});
+});
+// Helper function to get all ids
+async function getAllIds(tmdbType, id) {
+    try {
+        if(tmdbType =="tv" && id.startsWith("tt")){
+            const response = await fetch(`https://temp-tmdb-proxy.vercel.app/tmdb/find/${id}`);
+            const data = await response.json();
+            id = data.data.tv_results[0].id;
+        }
+        const response = await fetch(`https://temp-tmdb-proxy.vercel.app/tmdb/${tmdbType}/${id}/external_ids`);
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Error fetching IMDB ID:", error);
+        return null;
+    }
+}
 
 // Search route to handle search requests:-----------------------------------------------------------------------------
 app.post("/search", async (req, res)=>{
@@ -69,6 +102,7 @@ app.get("/api/trending", async (req, res)=>{
 
 // MongoDB Setup : ----------------------------------------------------------------------------------------------
 import User from "./models/user.js";
+import { assert } from 'console';
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log("✅ MongoDB connected"))
@@ -77,9 +111,7 @@ mongoose.connect(process.env.MONGO_URI)
 
 // Temporary auth simulation (until real login system)
 app.use((req, res, next) => {
-    // For now, assume user is NOT logged in
     req.userId = "guest";
-
     // Later, when you implement login, you’ll replace this with actual session or JWT check.
     // Example: req.userId = req.session.userId || null;
     next();
@@ -90,11 +122,11 @@ app.get("/api/bookmarks/test", (req, res) => {
     res.json({ message: "MongoDB route working fine" });
 });
 
-// Route to Get Bookmarks from MongoDB
+// Route to GET Bookmarks from MongoDB
 app.get("/api/bookmarks/get", async (req,res)=>{
     if (!req.userId) return res.status(401).json({ error: "Not logged in" });
     try{
-        const user = await User.findOne({ userId: req.userId }); // temporary guest
+        const user = await User.findOne({ userId: req.userId }); // find user
         if (!user) return res.status(404).json({ error: "User not found" });
         res.status(200).json({ bookmarks: user.bookmarks });
     } catch(error){
